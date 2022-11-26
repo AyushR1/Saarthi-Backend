@@ -1,5 +1,12 @@
-import express from 'express'
+import express from 'express';
+import mongoose from 'mongoose';
 
+//connect mongodb
+mongoose.connect(process.env.MONGODB_URI).then(() =>{
+    console.log("Connected to DB");
+}).catch((error) => {
+    console.log(error.message);
+});
 
 //Creates an instance of an Express application.
 const app = express();
